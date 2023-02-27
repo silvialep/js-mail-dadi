@@ -19,7 +19,7 @@
 
 // creo variabile array con mail accettate
 const pwList = ['pippo@gmail.com', 'pluto@gmail.it', 'topolino@yahoo.com', 'paperino@yahoo.it'];
-
+console.log(pwList);
 
 // creo variabili per elementi HTML
 let userEmailEl = document.getElementById('user-email');
@@ -54,9 +54,10 @@ confirmButtonEl.addEventListener('click', function() {
 
 //
 
-// creo variabili dei numeri del dado, e dei dadi dell'utente e del pc
+// creo array dei numeri del dado
 let dice = [1,2,3,4,5,6];
 
+// creo variabili degli elementi HTML
 let buttonDice = document.getElementById('btn-dice');
 let userNumberEl = document.querySelector('.user-number');
 let pcNumberEl = document.querySelector('.pc-number');
@@ -64,10 +65,13 @@ let diceOutcomeEl = document.querySelector('.dice-outcome');
 
 
 buttonDice.addEventListener('click', function() {
+    // creo variabili delle estrazioni del dado dell'utente e del pc
     let userDice = dice[Math.floor(Math.random() * dice.length)];
     let pcDice = dice[Math.floor(Math.random() * dice.length)];
-    userNumberEl.innerHTML = `Il numero scelto da te è ${userDice}.`;
-    pcNumberEl.innerHTML = `Il numero scelto dal computer è ${pcDice}.`;
+    // stampo i numeri estratti nell'HTML
+    userNumberEl.innerHTML = `Il numero estratto da te è ${userDice}.`;
+    pcNumberEl.innerHTML = `Il numero estratto dal computer è ${pcDice}.`;
+    // controllo quale numero è più alto e stampo in pagina l'esito
     if(userDice > pcDice) {
         diceOutcomeEl.innerHTML = `Hai vinto!`;
     } else {
@@ -76,7 +80,5 @@ buttonDice.addEventListener('click', function() {
 })
 
 
-// console.log(userDice);
-// console.log(pcDice);
 
 
