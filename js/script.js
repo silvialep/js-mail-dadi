@@ -29,15 +29,29 @@ let confirmButtonEl = document.getElementById('btn-confirm');
 // creo evento al click del button
 confirmButtonEl.addEventListener('click', function() {
     // inizializzo il ciclo for
-    for(let i = 0; i < pwList.length; i++) {
+    // for(let i = 0; i < pwList.length; i++) {
+    //     if (userEmailEl.value == pwList[i]) {
+    //         // controllo che l'input dell'utente sia presente nell'array e interrompo il ciclo
+    //         userEmailAnswerEl.innerHTML = `Accesso consentito`;
+    //         break;
+    //     } else {
+    //         // se l'input non è presente stampo un messaggio di errore
+    //         userEmailAnswerEl.innerHTML = `Accesso negato`;
+    //     }
+    // }
+
+    let provaOk = false;
+    for (let i = 0; i < pwList.length; i++) {
+
         if (userEmailEl.value == pwList[i]) {
-            // controllo che l'input dell'utente sia presente nell'array e interrompo il ciclo
-            userEmailAnswerEl.innerHTML = `Accesso consentito`;
-            break;
-        } else {
-            // se l'input non è presente stampo un messaggio di errore
-            userEmailAnswerEl.innerHTML = `Accesso negato`;
+            provaOk = true;
         }
+    }
+
+    if (provaOk == true) {
+        userEmailAnswerEl.innerHTML = `Accesso consentito`;
+    } else {
+        userEmailAnswerEl.innerHTML = `Accesso negato`;
     }
 })
 
@@ -79,6 +93,7 @@ buttonDice.addEventListener('click', function() {
     }
 })
 
-
+let blabla = Math.floor(Math.random() * (0, 6) + 1);
+console.log(blabla);
 
 
