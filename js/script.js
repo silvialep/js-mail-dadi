@@ -1,13 +1,5 @@
-// Mail
-// Chiedi all’utente la sua email,
-//     controlla che sia nella lista di chi può accedere,
-//         stampa un messaggio appropriato sull’esito del controllo.
-// Gioco dei dadi
-// Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
-// Stabilire il vincitore, in base a chi fa il punteggio più alto.
-// Prima di partire a scrivere codice poniamoci qualche domanda:
-// Che ci sia un array da qualche parte ?
-//     Se dobbiamo confrontare qualcosa che "cosa" ci serve ?
+
+
 //         Consigli del giorno:
 // 1. scriviamo sempre prima dei commenti in italiano per capire cosa vogliamo fare
 // 2. javascript non fa nulla da solo, dobbiamo dirgli noi cosa vogliamo fare
@@ -16,6 +8,11 @@
 // 5. proviamo ad immaginare le operazioni che vogliamo far svolgere al nostro programma così come lo faremmo "a mano"
 
 
+
+// Mail
+// Chiedi all’utente la sua email,
+//     controlla che sia nella lista di chi può accedere,
+//         stampa un messaggio appropriato sull’esito del controllo.
 
 
 
@@ -41,8 +38,45 @@ confirmButtonEl.addEventListener('click', function() {
             // se l'input non è presente stampo un messaggio di errore
             userEmailAnswerEl.innerHTML = `Accesso negato`;
         }
-    } 
-    
-
+    }
 })
+
+
+
+
+
+// Gioco dei dadi
+// Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
+// Stabilire il vincitore, in base a chi fa il punteggio più alto.
+// Prima di partire a scrivere codice poniamoci qualche domanda:
+// Che ci sia un array da qualche parte ?
+//     Se dobbiamo confrontare qualcosa che "cosa" ci serve ?
+
+//
+
+// creo variabili dei numeri del dado, e dei dadi dell'utente e del pc
+let dice = [1,2,3,4,5,6];
+
+let buttonDice = document.getElementById('btn-dice');
+let userNumberEl = document.querySelector('.user-number');
+let pcNumberEl = document.querySelector('.pc-number');
+let diceOutcomeEl = document.querySelector('.dice-outcome');
+
+
+buttonDice.addEventListener('click', function() {
+    let userDice = dice[Math.floor(Math.random() * dice.length)];
+    let pcDice = dice[Math.floor(Math.random() * dice.length)];
+    userNumberEl.innerHTML = `Il numero scelto da te è ${userDice}.`;
+    pcNumberEl.innerHTML = `Il numero scelto dal computer è ${pcDice}.`;
+    if(userDice > pcDice) {
+        diceOutcomeEl.innerHTML = `Hai vinto!`;
+    } else {
+        diceOutcomeEl.innerHTML = `Ritenta`;
+    }
+})
+
+
+// console.log(userDice);
+// console.log(pcDice);
+
 
